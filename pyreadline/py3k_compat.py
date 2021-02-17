@@ -5,6 +5,8 @@ if sys.version_info[0] >= 3:
     import collections
     PY3 = True
     def callable(x):
+        if sys.version_info[1] >= 9:
+            return isinstance(x, collections.abc.Callable)
         return isinstance(x, collections.Callable)
     
     def execfile(fname, glob, loc=None):
